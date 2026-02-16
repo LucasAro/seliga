@@ -27,6 +27,7 @@
           <a href="#beneficios">Benefícios</a>
           <a href="#diferenciais">Diferenciais</a>
           <a href="#como-funciona">Como funciona</a>
+          <a href="#faq">FAQ</a>
           <a
             href="https://app.seligasystem.com.br/"
             target="_blank"
@@ -56,10 +57,26 @@
             </p>
             <div class="hero__actions">
               <a href="#contato" class="btn btn--primary">Quero falar com a NinxSystem</a>
+              <a href="#calculadora" class="btn btn--alert">Calcular meu prejuízo</a>
               <a href="#como-funciona" class="btn btn--secondary">Ver como funciona</a>
             </div>
-            <div class="hero__note">
-              Sem preços nesta página. Conte sua necessidade e montamos a melhor proposta.
+            <div class="offer-banner" role="status" aria-live="polite">
+              Oferta ativa: <strong>R$ 200 por unidade</strong> por tempo limitado.
+              <span>Condição promocional sujeita à disponibilidade.</span>
+            </div>
+            <div class="hero__proof">
+              <article class="proof-chip">
+                <strong>+95%</strong>
+                <span>de etiquetas impressas sem retrabalho</span>
+              </article>
+              <article class="proof-chip">
+                <strong>Implantação rápida</strong>
+                <span>time treinado em poucos dias</span>
+              </article>
+              <article class="proof-chip">
+                <strong>Suporte humano</strong>
+                <span>atendimento direto com especialista</span>
+              </article>
             </div>
           </div>
           <div class="hero__card">
@@ -205,6 +222,115 @@
         </div>
       </section>
 
+      <section id="calculadora" class="section section--light">
+        <div class="container">
+          <h2>Calculadora de prejuízo por desperdício</h2>
+          <p class="lead">
+            Simule quanto sua operação perde com desperdício de etiquetas e veja o impacto anual.
+          </p>
+          <div class="calculator">
+            <form class="calculator__form" id="wasteCalculator">
+              <label>
+                Unidades desperdiçadas por mês
+                <input
+                  type="number"
+                  name="unitsPerMonth"
+                  min="0"
+                  step="1"
+                  value="30"
+                  required
+                />
+              </label>
+              <label>
+                Custo por unidade (R$)
+                <input
+                  type="number"
+                  name="unitCost"
+                  min="0"
+                  step="0.01"
+                  value="200"
+                  required
+                />
+              </label>
+              <label>
+                Período (meses)
+                <input
+                  type="number"
+                  name="periodMonths"
+                  min="1"
+                  step="1"
+                  value="12"
+                  required
+                />
+              </label>
+            </form>
+            <article class="calculator__result" aria-live="polite">
+              <p class="calculator__label">Prejuízo mensal estimado</p>
+              <p class="calculator__value" id="monthlyLoss">R$ 0,00</p>
+              <p class="calculator__label">Prejuízo no período</p>
+              <p class="calculator__value calculator__value--total" id="totalLoss">R$ 0,00</p>
+              <p class="calculator__hint" id="lossSummary"></p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="faq" class="section">
+        <div class="container faq">
+          <div class="faq__intro">
+            <p class="eyebrow">Perguntas frequentes</p>
+            <h2>Dúvidas comuns antes de contratar</h2>
+            <p class="lead">
+              Se preferir, também podemos responder no WhatsApp e simular junto com sua operação.
+            </p>
+          </div>
+          <div class="faq__list">
+            <details class="faq__item" open>
+              <summary>Esse valor de R$ 200 é por licença, impressora ou loja?</summary>
+              <p>
+                O valor promocional anunciado é por unidade contratada. No contato comercial,
+                validamos quantidade, estrutura e prazo para fechar a proposta final.
+              </p>
+            </details>
+            <details class="faq__item">
+              <summary>Preciso trocar minhas impressoras atuais?</summary>
+              <p>
+                Na maioria dos casos, não. O SeLiga foi desenhado para funcionar com diferentes
+                modelos, desde que estejam na rede e com configuração básica validada.
+              </p>
+            </details>
+            <details class="faq__item">
+              <summary>Quanto tempo leva para implantar?</summary>
+              <p>
+                Geralmente a implantação inicial acontece em poucos dias, incluindo configuração,
+                testes e treinamento da equipe para operar com segurança.
+              </p>
+            </details>
+            <details class="faq__item">
+              <summary>Consigo usar em mais de uma filial?</summary>
+              <p>
+                Sim. O sistema permite organizar filas e impressões por unidade, mantendo
+                visibilidade centralizada da operação.
+              </p>
+            </details>
+            <details class="faq__item">
+              <summary>Tem integração com ERP ou sistema próprio?</summary>
+              <p>
+                Sim. Temos API para integração sob medida, reduzindo digitação manual e
+                mantendo cadastro sincronizado com seus sistemas atuais.
+              </p>
+            </details>
+            <details class="faq__item">
+              <summary>O treinamento está incluso?</summary>
+              <p>
+                Sim, o treinamento faz parte da implantação para garantir adoção da equipe
+                e reduzir falhas no dia a dia.
+              </p>
+            </details>
+          </div>
+        </div>
+      </section>
+
       <section id="contato" class="section section--cta">
         <div class="container cta">
           <div>
@@ -250,6 +376,7 @@
           <a href="#prints">Telas</a>
           <a href="#beneficios">Benefícios</a>
           <a href="#diferenciais">Diferenciais</a>
+          <a href="#faq">FAQ</a>
           <a href="#contato">Contato</a>
           <a href="https://www.ninxsystem.com.br/" target="_blank" rel="noopener noreferrer">
             Site NinxSystem

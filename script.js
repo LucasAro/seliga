@@ -1,9 +1,14 @@
 const menuButton = document.getElementById("menuButton");
 const nav = document.querySelector(".nav");
 const contactForm = document.getElementById("contactForm");
+const wasteCalculator = document.getElementById("wasteCalculator");
+const monthlyLoss = document.getElementById("monthlyLoss");
+const totalLoss = document.getElementById("totalLoss");
+const lossSummary = document.getElementById("lossSummary");
 const lightbox = document.getElementById("lightbox");
 const lightboxImage = document.getElementById("lightboxImage");
 const shotLinks = document.querySelectorAll(".shot-link");
+const faqItems = document.querySelectorAll(".faq__item");
 
 if (menuButton && nav) {
   menuButton.addEventListener("click", () => {
@@ -33,6 +38,35 @@ if (contactForm) {
 
     window.location.href = `mailto:admin@ninxsystem.com.br?subject=${subject}&body=${body}`;
   });
+}
+
+if (wasteCalculator && monthlyLoss && totalLoss && lossSummary) {
+  const brl = new Intl.NumberFormat("pt-BR", {
+    style: "currency",
+    currency: "BRL",
+  });
+
+  const parseNumber = (value) => {
+    const numeric = Number(value);
+    return Number.isFinite(numeric) && numeric >= 0 ? numeric : 0;
+  };
+
+  const updateLoss = () => {
+    const formData = new FormData(wasteCalculator);
+    const units = parseNumber(formData.get("unitsPerMonth"));
+    const unitCost = parseNumber(formData.get("unitCost"));
+    const periodMonths = Math.max(1, parseNumber(formData.get("periodMonths")));
+
+    const monthly = units * unitCost;
+    const total = monthly * periodMonths;
+
+    monthlyLoss.textContent = brl.format(monthly);
+    totalLoss.textContent = brl.format(total);
+    lossSummary.textContent = `${units} un./mês x ${brl.format(unitCost)} por unidade durante ${periodMonths} mês(es).`;
+  };
+
+  wasteCalculator.addEventListener("input", updateLoss);
+  updateLoss();
 }
 
 const openLightbox = (src, alt) => {
@@ -74,4 +108,15 @@ document.addEventListener("keydown", (event) => {
   if (event.key === "Escape") {
     closeLightbox();
   }
+});
+
+faqItems.forEach((item) => {
+  item.addEventListener("toggle", () => {
+    if (!item.open) return;
+    faqItems.forEach((otherItem) => {
+      if (otherItem !== item) {
+        otherItem.open = false;
+      }
+    });
+  });
 });
